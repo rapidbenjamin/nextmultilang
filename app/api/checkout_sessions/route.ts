@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
       allow_promotion_codes: true,
       success_url: `${req.headers.get('origin')}/signup`,
       cancel_url: `${req.headers.get('origin')}/?canceled=true`,
-      //customer_email: req.headers.get('email') || undefined,
+      customer_email: req.headers.get('email') || undefined,
     });
     const response = new NextResponse(null, { status: 200 });
     response.headers.set('Location', session.url);
